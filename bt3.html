@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateArea(radius) {
+            return Math.PI * radius * radius;
+        }
+        function calculateCircumference(radius) {
+            return 2 * Math.PI * radius;
+        }
+        function calculateRectangleArea(length, width) {
+            return length * width;
+        }
+        function calculateRectanglePerimeter(length, width) {
+            return 2 * (length + width);
+        }
+        function main() {
+            let isRunning = true;
+            do {
+                let choice = +prompt(`Mời bạn nhập vào lựa chọn:
+                1. Tính diện tích hình tròn
+                2. Tính chu vi hình tròn
+                3. Tính diện tích hình chữ nhật
+                4. Tính chu vi hình chữ nhật
+                5. Thoát`)
+                if (choice===5) {
+                    isRunning = false;
+                }
+                else {                   
+                    switch (choice) {
+                        case 1:
+                        let radius1 = +prompt("Nhập bán kính hình tròn:");
+                        let area1 = calculateArea(radius1);
+                        console.log(`Diện tích hình tròn có bán kính ${radius1} là: ${area1}`);
+                            break;
+                        case 2:
+                        let radius2 = +prompt("Nhập bán kính hình tròn:");
+                        let cir = calculateCircumference(radius2);
+                        console.log(`Chu vi hình tròn có bán kính ${radius2} là: ${cir}`);
+                            break;
+                        case 3:
+                        let length1 = +prompt("Nhập chiều dài hình chữ nhật:");
+                        let width1 = +prompt("Nhập chiều rộng hình chữ nhật:");
+                        let area2 = calculateRectangleArea(length1, width1);
+                        console.log(`Diện tích hình chữ nhật có chiều dài ${length1} và chiều rộng ${width1} là: ${area2}`);
+                            break;
+                        case 4:
+                        let length2 = +prompt("Nhập chiều dài hình chữ nhật:");
+                        let width2 = +prompt("Nhập chiều rộng hình chữ nhật:"); 
+                        let per = calculateRectanglePerimeter(length2, width2);
+                        console.log(`Chu vi hình chữ nhật có chiều dài ${length2} và chiều rộng ${width2} là: ${per}`);
+                            break;    
+                        default:
+                            console.log("Nhập sai lựa chọn, vui lòng nhập lại");
+                            break;
+                    }
+                }
+                
+            } while (isRunning);
+            }
+        main();
+    </script>
+</body>
+</html>

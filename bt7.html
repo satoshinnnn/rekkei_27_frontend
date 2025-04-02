@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+    function finMissingNum(list) {
+        let d = (list[list.length-1]-list[0])/list.length;
+        for (let i = 0; i < list.length-1; i++) {
+            if(list[i+1]-list[i]!==d) {
+                return list[i]+d;
+            }
+        }
+    }
+    function main() {
+         let list = [1,2,4,5];
+         console.log(finMissingNum(list));
+    }
+    main();
+    </script>  
+</body>
+</html>

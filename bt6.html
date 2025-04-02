@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isCapSoCong(list){
+           let isCapSoCong = true;
+           for(let i = 0; i < list.length-1;i++) {
+            let diff = list[1]-list[0];
+            if(list[i+1]-list[i]!==diff) {
+                isCapSoCong = false;
+                break;
+            }
+           }
+           return isCapSoCong;
+        }
+      function taoMang(){
+        let list = [];
+        let amountOFNum = +prompt("Nhập số lượng só: ");
+        for (let i = 0; i < amountOFNum; i++) {
+            let num = +prompt("Nhập số thứ: " +(i + 1));
+            list.push(num);
+        }
+        console.log(`Nhập thành công`);
+        return list;       
+            }
+      function main() {
+        let list = taoMang();
+        if(isCapSoCong(list) && list.length>2) {
+            console.log("Đây là dãy số có cấp số cộng")
+        } else {
+            console.log("Đây không phải là dãy số có cấp số cộng")
+        }
+      }
+      main();
+    </script>
+</body>
+</html>

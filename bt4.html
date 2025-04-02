@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function inpuNumtList() {
+        let list = [];
+        let amountOFNum = +prompt("Nhập số lượng só: ");
+        for (let i = 0; i < amountOFNum; i++) {
+            let num = +prompt("Nhập số thứ: " +(i + 1));
+            list.push(num);
+        }
+        console.log(`Nhập thành công`);
+        return list;
+        }
+        function average(list) {
+            let sum = 0;
+            for (let i = 0; i < list.length; i++) {
+                sum += list[i];
+            }
+            return sum / list.length;
+        }
+        function evenMax(list) {
+            let max = list[0];
+            for (let i = 1; i < list.length; i++) {
+                if (list[i] > max && list[i] % 2 === 0) {
+                    max = list[i];
+                }
+            }
+            return max;
+        }
+        function minOdd(list) {
+            let min = list[0];
+            for (let i = 1; i < list.length; i++) {
+                if (list[i] < min && list[i] % 2 !== 0) {
+                    min = list[i];
+                }
+            }
+            return min;
+        }
+        function main() {
+            let isRunning = true;
+            let numList = [];
+            do {
+                let choice = +prompt(`Mời bạn nhập vào lựa chọn:
+                1. Nhập danh sách số nguyên
+                2. Tính trung bình các số
+                3. Tìm số chẵn lớn nhất
+                4. Tìm số lẻ nhỏ nhất
+                5. Thoát`)
+                if (choice===5) {
+                    isRunning = false;
+                }
+                else {                   
+                    switch (choice) {
+                        case 1:
+                        numList = inpuNumtList();
+                        console.log(`Danh sách số nguyên: ${numList}`);
+                            break;
+                        case 2:
+                        let avg = average(numList);
+                        console.log(`Trung bình cộng của danh sách là: ${avg}`);
+                            break;
+                        case 3:
+                        let max = evenMax(numList);
+                        console.log(`Số chẵn lớn nhất trong danh sách là: ${max}`);
+                            break;
+                        case 4:
+                        let min = minOdd(numList);
+                        console.log(`Số lẻ nhỏ nhất trong danh sách là: ${min}`);
+                            break;    
+                        default:
+                            console.log("Nhập sai lựa chọn, vui lòng nhập lại");
+                            break;
+                    }
+                }
+                
+            } while (isRunning);
+            }
+        main();
+    </script>
+</body>
+</html>

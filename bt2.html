@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+        * Chương trình nhập vào số lượng sinh viên và tên của từng sinh viên.
+        * trả về danh sách sinh viên 
+        */
+    function inputList() {
+        let list = [];
+        let amountOFStudent = +prompt("Nhập số lượng sinh viên: ");
+        for (let i = 0; i < amountOFStudent; i++) {
+            let student = prompt("Nhập tên sinh viên: ");
+            list.push(student);
+        }
+        console.log(`Nhập thành công`);
+        return list;
+    }
+    function showList(list) {
+        console.log("Danh sách sinh viên:");
+        for (let i = 0; i < list.length; i++) {
+            console.log(list[i]);
+        }   
+    }
+    function findStudent(list){
+        let target = prompt("Mời bạn nhập vào tên học sinh muốn tim");
+        if(list.includes(target)) {
+            console.log(`Học sinh ${target} đã được tìm thấy trong danh sách`);
+        } else (
+            console.log(`Không tìm thấy ${target} trong danh sách`)
+        )
+
+    }
+    function deleteStudent(list) {
+        let target = prompt("Mời bạn nhập vào tên học sinh muốn xóa");
+        if(list.includes(target)) {
+            for (let i = 0; i <list.length; i++) {
+                if(list[i]===target) {
+                    list.splice(i,1);
+                    break;
+                }
+            }
+            console.log(`Xóa thành công học sinh ${target}`);
+        } else {
+            console.log(`Không tìm thấy ${target} trong danh sách`);
+        }
+    }
+    function main() {
+    let studentList=[];
+    let isRunning = true;
+    do {
+        let choice = +prompt(`Mời bạn nhập vào lựa chọn:
+        1. Nhập danh sách sinh viên
+        2. Hiển thị danh sách sinh viên
+        3. Xóa sinh viên khỏi danh sách
+        4. Tìm sinh viên
+        5. Thoát`)
+        if (choice===5) {
+            isRunning = false;
+        }
+        else {
+            
+            switch (choice) {
+                case 1:
+                studentList = inputList()
+                    break;
+                case 2:
+                showList(studentList)
+                    break;
+                case 3:
+                deleteStudent(studentList);
+                    break;
+                case 4:
+                findStudent(studentList);
+                    break;
+            
+                default:
+                    console.log("Nhập sai lựa chọn, vui lòng nhập lại");
+                    break;
+            }
+        }
+        
+    } while (isRunning);
+    }
+    main();
+    </script>
+</body>
+</html>

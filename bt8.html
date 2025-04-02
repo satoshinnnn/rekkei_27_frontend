@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>                      
+<body>
+    <script>
+        function XapXepGiam(list) {
+            for (let i = 0; i < list.length-1; i++) {
+                for (let j = 0; j < list.length-1; j++) {
+                    if(list[j+1]>list[j]) {
+                        [list[j],list[j+1]] = [list[j+1],list[j]];
+                    }
+                }
+            }
+            return(list);
+        }
+        function main() {
+            let list = [2,5,1,4,7,6];
+            console.log(XapXepGiam(list).join(""));
+        }
+        main();
+     </script>
+</body>
+</html>
